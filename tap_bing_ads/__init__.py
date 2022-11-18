@@ -187,8 +187,8 @@ def save_refresh_token_to_ssm(oauth_tokens):
         import boto3
         LOGGER.info(f"saving refresh token to SSM now at: {CONFIG['refresh_token_ssm_param']}")
 
-        _ssm = boto3.client("ssm")
-        put_param_output: dict = _ssm.put_parameter(Name=CONFIG['refresh_token_ssm_param'], Value=oauth_tokens.refresh_token, Overwrite=True)
+        ssm = boto3.client("ssm")
+        put_param_output: dict = ssm.put_parameter(Name=CONFIG['refresh_token_ssm_param'], Value=oauth_tokens.refresh_token, Overwrite=True)
 
         LOGGER.info(f"put_param_output: {str(put_param_output)}")
     except ImportError as e:
