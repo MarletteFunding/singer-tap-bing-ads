@@ -22,6 +22,7 @@ setup(
         'boto3>=1.28.0',
         'six>=1.17.0',
         'urllib3>=2.5.0',
+        'setuptools>=75.0.0,<81'
     ],
     extras_require={
         'test': [
